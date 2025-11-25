@@ -40,13 +40,13 @@ export default function Hero() {
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-bg"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-bg pt-20"
     >
       {/* Animated Background Shapes */}
       {floatingShapes.map((shape, index) => (
         <motion.div
           key={index}
-          className="absolute rounded-full morph opacity-20"
+          className="absolute rounded-full morph opacity-20 hidden md:block"
           style={{
             width: shape.size,
             height: shape.size,
@@ -69,11 +69,11 @@ export default function Hero() {
 
       {/* Rotating Ring */}
       <motion.div
-        className="absolute w-[600px] h-[600px] border border-indigo-500/20 rounded-full rotate-slow"
+        className="absolute w-[400px] md:w-[600px] h-[400px] md:h-[600px] border border-indigo-500/20 rounded-full rotate-slow"
         style={{ y, opacity }}
       />
       <motion.div
-        className="absolute w-[800px] h-[800px] border border-purple-500/10 rounded-full"
+        className="absolute w-[500px] md:w-[800px] h-[500px] md:h-[800px] border border-purple-500/10 rounded-full"
         animate={{ rotate: -360 }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         style={{ y, opacity }}
@@ -81,7 +81,7 @@ export default function Hero() {
 
       {/* Main Content */}
       <motion.div
-        className="relative z-10 text-center px-6"
+        className="relative z-10 text-center px-6 max-w-5xl mx-auto"
         style={{ y, opacity }}
       >
         {/* Pre-title */}
@@ -89,13 +89,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="text-zinc-400 text-lg mb-4 tracking-widest uppercase"
+          className="text-zinc-400 text-sm md:text-lg mb-4 tracking-widest uppercase"
         >
           Creative Motion Designer
         </motion.p>
 
         {/* Main Title with Letter Animation */}
-        <h1 className="text-7xl md:text-9xl font-bold mb-6 overflow-hidden">
+        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-6 overflow-hidden">
           {title.split("").map((letter, i) => (
             <motion.span
               key={i}
@@ -117,7 +117,7 @@ export default function Hero() {
           transition={{ delay: 1, duration: 0.8 }}
           className="relative inline-block"
         >
-          <h2 className="text-2xl md:text-4xl text-zinc-300 font-light">
+          <h2 className="text-xl sm:text-2xl md:text-4xl text-zinc-300 font-light">
             {subtitle}
           </h2>
           <motion.div
@@ -133,7 +133,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8, duration: 1 }}
-          className="mt-8 text-zinc-500 max-w-xl mx-auto text-lg"
+          className="mt-6 md:mt-8 text-zinc-500 max-w-xl mx-auto text-sm md:text-lg px-4"
         >
           Bringing ideas to life through captivating animations and dynamic visual experiences
         </motion.p>
@@ -143,13 +143,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.2, duration: 0.8 }}
-          className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+          className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4"
         >
           <motion.a
             href="#work"
             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(99, 102, 241, 0.5)" }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium magnetic-btn"
+            className="px-6 md:px-8 py-3 md:py-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm md:text-base font-medium magnetic-btn"
           >
             View My Work
           </motion.a>
@@ -157,7 +157,7 @@ export default function Hero() {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 rounded-full border border-zinc-700 text-white font-medium hover:border-indigo-500 transition-colors"
+            className="px-6 md:px-8 py-3 md:py-4 rounded-full border border-zinc-700 text-white text-sm md:text-base font-medium hover:border-indigo-500 transition-colors"
           >
             Get in Touch
           </motion.a>
@@ -169,7 +169,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 3, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

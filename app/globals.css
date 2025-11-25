@@ -18,9 +18,9 @@
   --font-body: var(--font-inter);
 }
 
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 

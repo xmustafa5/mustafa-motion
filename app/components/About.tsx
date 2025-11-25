@@ -38,35 +38,35 @@ export default function About() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
+    <section id="about" className="py-24 flex justify-center md:py-32 relative overflow-hidden bg-black">
       {/* Background Elements */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
       <motion.div
-        className="absolute top-20 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"
+        className="absolute top-20 right-0 w-96 h-96 bg-indigo-500/50 rounded-full blur-3xl"
         animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
         transition={{ duration: 8, repeat: Infinity }}
       />
 
-      <div ref={containerRef} className="max-w-7xl mx-auto px-6">
+      <div ref={containerRef} className="max-w-6xl mx-auto px-6  lg:px-8 flex flex-col ">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16 flex justify-center items-center flex-col "
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-400 text-sm font-medium mb-4"
+            className="inline-block px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-400 text-sm font-medium mb-6"
           >
             About Me
           </motion.span>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
             Crafting <span className="gradient-text">Motion</span> That Moves
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
+          <p className="text-zinc-400  max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             I&apos;m Mustafa, a passionate motion designer who transforms static ideas into dynamic visual stories that captivate and engage audiences.
           </p>
         </motion.div>
@@ -76,7 +76,7 @@ export default function About() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -85,17 +85,17 @@ export default function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 * index + 0.5 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 rounded-2xl glass"
+              className="text-center p-5 md:p-8 rounded-2xl glass"
             >
               <motion.span
-                className="block text-4xl md:text-5xl font-bold gradient-text mb-2"
+                className="block text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-2"
                 initial={{ scale: 0 }}
                 animate={isInView ? { scale: 1 } : {}}
                 transition={{ delay: 0.3 * index + 0.6, type: "spring" }}
               >
                 {stat.number}
               </motion.span>
-              <span className="text-zinc-400 text-sm">{stat.label}</span>
+              <span className="text-zinc-400 text-xs md:text-sm">{stat.label}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -105,10 +105,10 @@ export default function About() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8 }}
-          className="mb-16"
+          className="mb-20 flex flex-col "
         >
-          <h3 className="text-2xl font-bold text-center mb-12">What I Do</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h3 className="text-xl md:text-2xl font-bold text-center mb-10">What I Do</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -116,15 +116,15 @@ export default function About() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.1 * index + 1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="p-6 rounded-2xl animated-border group cursor-pointer"
+                className="p-5 md:p-6 rounded-2xl animated-border group cursor-pointer h-full"
               >
                 <motion.div
-                  className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mb-4"
+                  className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mb-4"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
                   <svg
-                    className="w-6 h-6 text-white"
+                    className="w-5 h-5 md:w-6 md:h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -132,10 +132,10 @@ export default function About() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={service.icon} />
                   </svg>
                 </motion.div>
-                <h4 className="text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors">
+                <h4 className="text-base md:text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors">
                   {service.title}
                 </h4>
-                <p className="text-zinc-400 text-sm">{service.description}</p>
+                <p className="text-zinc-400 text-sm leading-relaxed">{service.description}</p>
               </motion.div>
             ))}
           </div>
@@ -146,12 +146,12 @@ export default function About() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 1.2 }}
-          className="grid md:grid-cols-2 gap-12 items-center"
+          className="grid md:grid-cols-2 gap-10 md:gap-16 items-center"
         >
           {/* Animated Illustration */}
-          <div className="relative h-96 flex items-center justify-center">
+          <div className="relative h-72 md:h-96 flex items-center justify-center order-2 md:order-1">
             <motion.div
-              className="absolute w-64 h-64 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full"
+              className="absolute w-48 md:w-64 h-48 md:h-64 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full"
               animate={{
                 scale: [1, 1.1, 1],
                 rotate: [0, 180, 360],
@@ -159,7 +159,7 @@ export default function About() {
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             />
             <motion.div
-              className="absolute w-48 h-48 bg-gradient-to-tr from-purple-500/20 to-pink-500/20 rounded-full"
+              className="absolute w-36 md:w-48 h-36 md:h-48 bg-gradient-to-tr from-purple-500/20 to-pink-500/20 rounded-full"
               animate={{
                 scale: [1.1, 1, 1.1],
                 rotate: [360, 180, 0],
@@ -167,21 +167,21 @@ export default function About() {
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             />
             <motion.div
-              className="relative z-10 w-40 h-40 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center"
+              className="relative z-10 w-32 md:w-40 h-32 md:h-40 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-2xl"
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
-              <span className="text-6xl font-bold text-white">M</span>
+              <span className="text-5xl md:text-6xl font-bold text-white">M</span>
             </motion.div>
           </div>
 
           {/* Bio Text */}
-          <div>
+          <div className="order-1 md:order-2">
             <motion.h3
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 1.3 }}
-              className="text-3xl font-bold mb-6"
+              className="text-2xl md:text-3xl font-bold mb-6"
             >
               Bringing <span className="gradient-text">Stories</span> to Life
             </motion.h3>
@@ -189,7 +189,7 @@ export default function About() {
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 1.4 }}
-              className="text-zinc-400 mb-4"
+              className="text-zinc-400 mb-4 text-sm md:text-base leading-relaxed"
             >
               With over 5 years of experience in motion design, I&apos;ve had the privilege of working with brands and agencies worldwide. My passion lies in creating animations that not only look stunning but also tell compelling stories.
             </motion.p>
@@ -197,7 +197,7 @@ export default function About() {
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 1.5 }}
-              className="text-zinc-400 mb-6"
+              className="text-zinc-400 mb-6 text-sm md:text-base leading-relaxed"
             >
               From sleek UI animations to complex visual effects, I bring a meticulous attention to detail and a deep understanding of timing and rhythm to every project.
             </motion.p>
